@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const TaskCategory = props => {
   return (
-    <Wrapper>
+    <Wrapper onPress={props.clicked}>
       <Text style={{color: '#949fc6', fontSize: 15, fontWeight: '500'}}>
         {props.numberOfTasks} tasks
       </Text>
@@ -26,7 +26,7 @@ const TaskCategory = props => {
 
 export default TaskCategory;
 
-const Wrapper = styled.View`
+const Wrapper = styled.TouchableOpacity`
   width: 230px;
   box-shadow: 0px 2px 4px #eff3ff;
   elevation: 4;

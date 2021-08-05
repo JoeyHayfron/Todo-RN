@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -14,9 +14,10 @@ import styled from 'styled-components';
 import {showSideNav, hideSideNav} from '../redux/actions/ui/ui.actions';
 import TaskCategory from '../components/TaskCategory';
 import Task from '../components/TaskComponent';
-import AddTaskFloatingButton from '../components/AddTaskFloatingButton';
+import AddFloatingButton from '../components/AddFloatingButton';
 import {Colors} from '../globals/colors';
 import AddTaskScreen from './AddTaskScreen';
+import ProfileScreen from './ProfileScreen';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -62,7 +63,7 @@ const HomeScreen = props => {
 
   return (
     <HomeWrapper>
-      <AddTaskScreen />
+      <ProfileScreen />
       {/* <AnimatedWrapper
         style={{
           position: 'absolute',
@@ -71,16 +72,33 @@ const HomeScreen = props => {
           transform: [{translateX: translateX}, {scale: scale}],
           borderRadius: borderRadius,
         }}>
-        <AddTaskFloatingButton />
+        <AddFloatingButton
+          onPress={() => props.navigation.navigate('AddTask')}
+        />
         <ScrollView showsVerticalScrollIndicator={false}>
-          <TouchableOpacity
-            onPress={() => showSideNav()}
+          <Header
             style={{
               marginTop: screenHeight <= 800 ? 40 : 80,
               marginBottom: 35,
             }}>
-            <Image source={require('../assets/images/menu-25.png')} />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => showSideNav()}>
+              <Image source={require('../assets/images/menu-25.png')} />
+            </TouchableOpacity>
+            <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity
+                style={{marginRight: 20}}
+                onPress={() => props.navigation.navigate('Search')}>
+                <Image source={require('../assets/images/search-32.png')} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => props.navigation.navigate('Notifications')}>
+                <Image
+                  source={require('../assets/images/notification-32.png')}
+                />
+              </TouchableOpacity>
+            </View>
+          </Header>
+
           <Text style={{fontSize: 30, fontWeight: 'bold', color: '#1f2d5c'}}>
             Welcome Joseph
           </Text>
@@ -98,6 +116,7 @@ const HomeScreen = props => {
               categoryName="Business"
               numberOfTasks="40"
               categoryColor="#e000ee"
+              clicked={() => props.navigation.navigate('SingleCategory')}
             />
             <TaskCategory
               categoryName="Business"
@@ -167,7 +186,7 @@ const HomeScreen = props => {
           />
         </ScrollView>
       </AnimatedWrapper>
-      <NavScreen /> */}
+      <NavScreen nav={props.navigation} /> */}
     </HomeWrapper>
   );
 };
@@ -203,3 +222,8 @@ const Wrapper = styled.View`
   overflow: hidden;
 `;
 const AnimatedWrapper = Animated.createAnimatedComponent(Wrapper);
+
+const Header = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import {Text, TouchableOpacity, Animated} from 'react-native';
 
-const Task = ({isCompleted, categoryColor, checkTask}) => {
+const Task = ({isCompleted, categoryColor, checkTask, title, date}) => {
   const opacity = new Animated.Value(0);
 
   useEffect(() => {
@@ -30,7 +30,10 @@ const Task = ({isCompleted, categoryColor, checkTask}) => {
               source={require('../assets/images/checkmark-32.png')}
             />
           </OuterRadio>
-          <TodoText isCompleted={isCompleted}>Complete Todo App</TodoText>
+          <TodoText isCompleted={isCompleted}>
+            {title ? title : 'Complete Todo App'}
+          </TodoText>
+          {date ? <DateText>{date}</DateText> : null}
         </Content>
       </TouchableOpacity>
     </Wrapper>
@@ -85,4 +88,11 @@ const AnimatedCheck = Animated.createAnimatedComponent(InnerRadio);
 const Content = styled.View`
   flex-direction: row;
   align-items: center;
+`;
+
+const DateText = styled.Text`
+  font-size: 10px;
+  position: absolute;
+  bottom: -20;
+  right: -10;
 `;

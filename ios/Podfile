@@ -13,8 +13,6 @@ target 'todo' do
     :hermes_enabled => false
   )
 
-  pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker'
-
   target 'todoTests' do
     inherit! :complete
     # Pods for testing

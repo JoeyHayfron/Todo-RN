@@ -36,6 +36,7 @@ const NavScreen = props => {
               imageSource={item.imageSource}
               menuText={item.text}
               key={index}
+              clicked={() => props.nav.navigate(item.text)}
             />
           );
         })}
