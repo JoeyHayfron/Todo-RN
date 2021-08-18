@@ -40,6 +40,7 @@ const CategoriesScreen = props => {
           <CategoryComponent
             categoryName={item.name}
             categoryColor={item.color}
+            onPress={() => props.navigation.navigate('SingleCategory')}
           />
         )}
         keyExtractor={item => item.id}

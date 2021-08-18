@@ -18,6 +18,7 @@ import AddFloatingButton from '../components/AddFloatingButton';
 import {Colors} from '../globals/colors';
 import AddTaskScreen from './AddTaskScreen';
 import ProfileScreen from './ProfileScreen';
+import AuthenticationScreen from './AuthenticationScreen';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -63,7 +64,7 @@ const HomeScreen = props => {
 
   return (
     <HomeWrapper>
-      <ProfileScreen />
+      <AuthenticationScreen />
       {/* <AnimatedWrapper
         style={{
           position: 'absolute',

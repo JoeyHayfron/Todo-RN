@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const platform = Platform.OS;
 const CategoryComponent = props => {
   return (
-    <CategoryWrapper color={props.categoryColor}>
+    <CategoryWrapper color={props.categoryColor} onPress={props.onPress}>
       <CategoryName>{props.categoryName}</CategoryName>
     </CategoryWrapper>
   );

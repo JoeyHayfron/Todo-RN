@@ -15,7 +15,7 @@ const SingleCategoryScreen = props => {
         <BackButton
           onPress={() => {
             props.hideSideNav();
-            props.navigation.navigate('Home');
+            props.navigation.goBack();
           }}
         />
         <Text
