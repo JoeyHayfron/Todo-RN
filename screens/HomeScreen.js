@@ -64,8 +64,7 @@ const HomeScreen = props => {
 
   return (
     <HomeWrapper>
-      <AuthenticationScreen />
-      {/* <AnimatedWrapper
+      <AnimatedWrapper
         style={{
           position: 'absolute',
           height: '100%',
@@ -187,7 +186,7 @@ const HomeScreen = props => {
           />
         </ScrollView>
       </AnimatedWrapper>
-      <NavScreen nav={props.navigation} /> */}
+      <NavScreen nav={props.navigation} />
     </HomeWrapper>
   );
 };

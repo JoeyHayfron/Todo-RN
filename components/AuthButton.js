@@ -4,7 +4,7 @@ import {Image, Text} from 'react-native';
 
 const AuthButton = props => {
   return (
-    <Wrapper background={props.background}>
+    <Wrapper background={props.background} onPress={props.onPress}>
       <Image
         source={props.imgSrc}
         style={{width: 35, height: 35, marginRight: 30}}

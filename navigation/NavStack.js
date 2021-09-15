@@ -19,7 +19,7 @@ const Nav = createStackNavigator();
 const NavStack = () => {
   return (
     <NavigationContainer>
-      <Nav.Navigator initialRouteName="Home">
+      <Nav.Navigator initialRouteName="AuthScreen">
         <Nav.Screen
           name="Home"
           component={HomeScreen}

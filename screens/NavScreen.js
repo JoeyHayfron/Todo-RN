@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {Menu} from '../appData/menuData';
 import SideMenuItem from '../components/SideMenuItem';
 import {hideSideNav} from '../redux/actions/ui/ui.actions';
+import {signOutUser} from '../services/firebase';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -36,7 +37,13 @@ const NavScreen = props => {
               imageSource={item.imageSource}
               menuText={item.text}
               key={index}
-              clicked={() => props.nav.navigate(item.text)}
+              clicked={() => {
+                if (item.text === 'Logout') {
+                  signOutUser().then(() => {
+                    props.nav.navigate('AuthScreen');
+                  });
+                } else props.nav.navigate(item.text);
+              }}
             />
           );
         })}

@@ -1,32 +1,51 @@
-import React, {useState} from 'react';
-import {Text, View, SafeAreaView, Image, TouchableOpacity} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Platform} from 'react-native';
 import styled from 'styled-components';
 import AuthButton from '../components/AuthButton';
 import Loader from '../components/Loader';
+import {
+  onFacebookButtonPress,
+  onGoogleButtonPress,
+  createUserDocument,
+  getCurrentUser,
+} from '../services/firebase';
 
-const AuthenticationScreen = () => {
-  const [testShow, setTestShow] = useState(false);
-  const showLoader = () => {
-    setTestShow(!testShow);
-  };
+const os = Platform.OS;
+const AuthenticationScreen = props => {
+  useEffect(() => {
+    if (getCurrentUser()) {
+      props.navigation.navigate('Home');
+    }
+  }, []);
   return (
     <Wrapper>
-      <TouchableOpacity onPress={showLoader}>
-        <Text>Click</Text>
-      </TouchableOpacity>
-      <Loader show={testShow} />
-      {/* <AppLogo source={require('../assets/images/TaskTracker.png')} />
+      <AppLogo source={require('../assets/images/TaskTracker.png')} />
       <AuthButton
         text="Sign in with Google"
         imgSrc={`${require('../assets/images/google_icon.png')}`}
         textColor="#454445"
+        onPress={() => {
+          onGoogleButtonPress().then(res =>
+            createUserDocument(res, () => {
+              props.navigation.navigate('Home');
+            }),
+          );
+        }}
       />
+
       <AuthButton
         background="#1977f2"
         text="Sign in with Facebook"
         imgSrc={`${require('../assets/images/facebook_icon.png')}`}
         textColor="white"
-      /> */}
+        onPress={() =>
+          onFacebookButtonPress().then(res =>
+            createUserDocument(res, () => {
+              props.navigation.navigate('Home');
+            }),
+          )
+        }
+      />
     </Wrapper>
   );
 };
