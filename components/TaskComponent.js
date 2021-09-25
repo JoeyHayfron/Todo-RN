@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {Text, TouchableOpacity, Animated} from 'react-native';
 
 const Task = ({isCompleted, categoryColor, checkTask, title, date}) => {

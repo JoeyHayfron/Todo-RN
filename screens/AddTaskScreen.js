@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState, useEffect} from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {Text, Image, View, Animated, Platform} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import CategoryComponent from '../components/CategoryComponent_AddTaskScreen';

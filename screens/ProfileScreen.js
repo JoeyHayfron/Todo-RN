@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {Text, Platform, TextInput, Image, View} from 'react-native';
 import BackButton from '../components/BackButton';
 

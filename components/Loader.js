@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {Text, Animated} from 'react-native';
 
 const Loader = props => {

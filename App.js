@@ -1,14 +1,9 @@
 import React from 'react';
-import {SafeAreaView, Text, Platform} from 'react-native';
+import {Platform} from 'react-native';
 import {Provider} from 'react-redux';
 import Store from './redux/store';
-import HomeScreen from './screens/HomeScreen';
 import NavStack from './navigation/NavStack';
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
 const os = Platform.OS;
 const App = () => {

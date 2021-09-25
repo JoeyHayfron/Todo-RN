@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Platform} from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import AuthButton from '../components/AuthButton';
 import Loader from '../components/Loader';
 import {

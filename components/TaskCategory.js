@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
-import styled from 'styled-components';
-
+import styled from 'styled-components/native';
 const TaskCategory = props => {
   return (
     <Wrapper onPress={props.clicked}>

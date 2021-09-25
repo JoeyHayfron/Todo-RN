@@ -1,20 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import {Text, Image} from 'react-native';
+import styled from 'styled-components/native';
+import {Text, Image, TouchableOpacity} from 'react-native';
 
 const SideMenuItem = ({imageSource, menuText, clicked}) => {
   return (
-    <MenuItem onPress={clicked}>
+    <TouchableOpacity
+      style={{flexDirection: 'row', alignItems: 'center', marginBottom: 20}}
+      onPress={clicked}>
       <Image source={imageSource} style={{marginRight: 20}} />
       <Text style={{color: 'white', fontSize: 15}}>{menuText}</Text>
-    </MenuItem>
+    </TouchableOpacity>
   );
 };
 
 export default SideMenuItem;
-
-const MenuItem = styled.TouchableOpacity`
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 20px;
-`;

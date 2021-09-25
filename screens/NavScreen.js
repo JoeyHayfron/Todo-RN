@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, Dimensions, Image} from 'react-native';
 import {connect} from 'react-redux';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {Menu} from '../appData/menuData';
 import SideMenuItem from '../components/SideMenuItem';
 import {hideSideNav} from '../redux/actions/ui/ui.actions';

@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import NavScreen from './NavScreen';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {showSideNav, hideSideNav} from '../redux/actions/ui/ui.actions';
 import TaskCategory from '../components/TaskCategory';
 import Task from '../components/TaskComponent';

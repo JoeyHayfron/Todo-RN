@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {Text, TouchableOpacity, Platform, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {hideSideNav} from '../redux/actions/ui/ui.actions';
